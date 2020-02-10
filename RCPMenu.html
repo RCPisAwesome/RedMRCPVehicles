@@ -1,0 +1,397 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vehicle Menu By RCPisAwesome</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://www.rcpisawesome.co.uk/dev/RCPMenu.js" type="text/javascript"></script>
+	<link href="https://www.rcpisawesome.co.uk/dev/RCPMenu.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	<script type="text/javascript">
+		$(function() {
+			var location = window.location.href;
+			var directoryPath = location.substring(6, location.lastIndexOf("/")+1);
+			$('#createvehicle').click(function(){
+				$.post(('http://'+directoryPath+"createvehicle"), JSON.stringify({
+					createtype: "1",
+					vehicle: $("#vehicleselected").text(),
+					p5:$('#p5 :selected').text(),
+					p6:$('#p6 :selected').text(),
+					p7:$('#p7 :selected').text(),
+					p8:$('#p8 :selected').text(),
+					p9:$('#p9 :selected').text(),
+				}));
+			});
+			$('#createvehicle2').click(function(){
+				$.post(('http://'+directoryPath+"createvehicle"), JSON.stringify({
+					createtype: "2",
+					vehicle: $("#vehicleselected").text(),
+					p5:$('#p5 :selected').text(),
+					p6:$('#p6 :selected').text(),
+					p7:$('#p7 :selected').text(),
+					p8:$('#p8 :selected').text(),
+					p9:$('#p9 :selected').text(),
+				}));
+			});
+			$("button").click(function(){
+				$("#vehicleselected").html($(this).attr('name'));
+				if (document.getElementById("switch").checked == true) {
+					colourselectedbutton(this);
+				}else{
+					colouronlyselectedbutton(this);
+				}
+			});
+			var button = document.querySelectorAll('button')
+			for (i = 0; i < button.length; i++) {
+				var x = button[i].getAttribute("name");
+				button[i].innerHTML = x;
+			}
+		})
+	</script>
+	<style type="text/css">
+		#menu{
+			height: 83% !important;
+			overflow: hidden;
+		}
+		.tab{
+			overflow-y:auto !important;
+			height: 63.5%;
+			width: 100%;
+		}
+		.tabbutton{
+			width: 25% !important;
+		}
+		#createvehicle,#createvehicle2,select {
+			background: rgb(151,66,66);
+			color: white;
+			padding-right: 1%;
+			padding-left: 1%;
+			padding-top: 0.5%;
+			padding-bottom: 0.5%;
+			border-radius: 5px;
+			display: inline;
+			text-align: center;
+			text-decoration: none;
+			font-family: 'Kaushan Script', cursive;
+			text-shadow:
+			0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+			0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+			font-size: 0.8vw;
+			font-weight: 400;
+		}
+		#createvehicle:hover,#createvehicle2:hover,select:hover {
+			text-shadow:
+			0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+			0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+			0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black,
+			0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+			filter: contrast(150%);
+		}
+		select{
+			display: inline !important;
+		}
+		#createvehicle,#createvehicle2,#vehicleselected,#vehicleselectedp{
+			display: inline !important;
+			float: center;
+			margin: 2%;
+		}
+		.createvehiclebar{
+			margin-top: 2%;
+			margin-bottom: 2%;
+		}
+	</style>
+</head>
+<body>
+	<div id="menu">
+		<div id='titlebar'>
+			<div id="close">X</div>
+			<label class="switch">
+				<input id="switch" type="checkbox" checked>
+				<span class="slider"></span>
+			</label>
+			<div id="title"></div>
+		</div>
+
+		<div>
+			<p>p5 - Vehicle Is Registered On The Network - (Default:True):</p>
+			<select id="p5"> <option selected="selected">true</option> <option>false</option> <option>1</option> <option>0</option> </select>
+		</div>
+		<div>
+			<p>p6 - Vehicle Can Be Deleted If Called - (Default:False):</p>
+			<select id="p6"> <option>true</option> <option selected="selected">false</option> <option>1</option> <option>0</option> </select>
+		</div>
+		<div>
+			<p>p7 - If 0 & Vehicle Can, Horses Will Spawn With It - (Default:0):</p>
+			<select id="p7"> <option>true</option> <option>false</option> <option>1</option> <option selected="selected">0</option> </select>
+		</div>
+		<div>
+			<p>p8 - (Default:0):</p>
+			<select id="p8"> <option>true</option> <option>false</option> <option>1</option> <option selected="selected">0</option> </select>
+		</div>
+		<div>
+			<p>p9 - Only Needed For CreateVehicle_2:</p>
+			<select id="p9"> <option>true</option> <option>false</option> <option>1</option> <option selected="selected">0</option> </select>
+		</div>
+		<div>
+			<p id="vehicleselectedp">Vehicle Selected: </p>
+			<p id="vehicleselected">Select A Vehicle</p>
+		</div>
+		<div class="createvehiclebar">
+			<div id="createvehicle">Use CreateVehicle</div>
+			<div id="createvehicle2">Use CreateVehicle_2</div>
+		</div>
+
+		<div id="tabdefault" class="tabbutton">Search</div>
+		<div class="tabbutton">1 Horse Carts</div>
+		<div class="tabbutton">2 Horse Carts</div>
+		<div class="tabbutton">4 Horse Carts</div>
+		<div class="tabbutton">Trains</div>
+		<div class="tabbutton">Boats</div>
+		<div class="tabbutton">Weapons</div>
+		<div class="tabbutton">Other</div>
+
+		<div id="1HorseCarts" class="tab">
+			<button name="CART01"></button>
+			<button name="CART02"></button>
+			<button name="CART03"></button>
+			<button name="CART04"></button>
+			<button name="CART05"></button>
+			<button name="CART06"></button>
+			<button name="CART07"></button>
+			<button name="CART08"></button>
+			<button name="BUGGY01"></button>
+			<button name="BUGGY02"></button>
+			<button name="BUGGY03"></button>
+			<button name="COACH4"></button>
+			<button name="COACH5"></button>
+			<button name="COACH6"></button>
+			<button name="coal_wagon"></button>
+			<button name="WAGON06X"></button>
+			<button name="UTILLIWAG"></button>
+			<button name="GATCHUCK"></button>
+			<button name="GATCHUCK_2"></button>
+			<button name="wagonDairy01x"></button>
+			<button name="wagonWork01x"></button>
+			<button name="wagonTraveller01x"></button>
+		</div>
+
+		<div id="2HorseCarts" class="tab">
+			<button name="ARMYSUPPLYWAGON"></button>
+			<button name="CHUCKWAGON000X"></button>
+			<button name="CHUCKWAGON002X"></button>
+			<button name="COACH3"></button>
+			<button name="OILWAGON01X"></button>
+			<button name="POLICEWAGON01X"></button>
+			<button name="WAGON02X"></button>
+			<button name="WAGON04X"></button>
+			<button name="LOGWAGON"></button>
+			<button name="WAGON03X"></button>
+			<button name="WAGON05X"></button>
+			<button name="WAGONPRISON01X"></button>
+			<button name="STAGECOACH001X"></button>
+			<button name="STAGECOACH002X"></button>
+			<button name="STAGECOACH003X"></button>
+			<button name="STAGECOACH005X"></button>
+			<button name="STAGECOACH006X"></button>
+			<button name="wagonCircus01x"></button>
+			<button name="supplywagon"></button>
+			<button name="wagonCircus02x"></button>
+			<button name="wagonDoc01x"></button>
+			<button name="coach3_cutscene"></button>
+			<button name="oilWagon02x"></button>
+			<button name="policeWagongatling01x"></button>
+		</div>
+
+		<div id="4HorseCarts" class="tab">
+			<button name="COACH2"></button>
+			<button name="STAGECOACH004X"></button>
+		</div>
+
+		<div id="Trains" class="tab">
+			<button name="CABOOSE01X"></button>
+			<button name="northpassenger01x"></button>
+			<button name="NORTHSTEAMER01X"></button>
+			<button name="HANDCART"></button>
+			<button name="PRIVATECOALCAR01X"></button>
+			<button name="PRIVATESTEAMER01X"></button>
+			<button name="PRIVATEDINING01X"></button>
+			<button name="midlandboxcar05x"></button>
+			<button name="privateflatcar01x"></button>
+			<button name="privateboxcar04x"></button>
+			<button name="privatebaggage01X"></button>
+			<button name="privatepassenger01x"></button>
+			<button name="trolley01x"></button>
+			<button name="northflatcar01x"></button>
+			<button name="northcoalcar01x"></button>
+			<button name="northpassenger03x"></button>
+			<button name="privateboxcar02x"></button>
+			<button name="armoredcar03x"></button>
+			<button name="privateopensleeper01x"></button>
+			<button name="privateopensleeper02x"></button>
+			<button name="WINTERSTEAMER"></button>
+			<button name="wintercoalcar"></button>
+			<button name="privateboxcar01x"></button>
+			<button name="privateobservationcar"></button>
+			<button name="privatearmoured"></button>
+			<button name="armoredCar01x"></button>
+			<button name="midlandrefrigeratorCar"></button>
+			<button name="coalHopper01x"></button>
+			<button name="privateRooms01x"></button>
+			<button name="GhostTrainSteamer"></button>
+			<button name="GhostTrainCoalCar"></button>
+			<button name="GhostTrainPassenger"></button>
+			<button name="GhostTrainCaboose"></button>
+			<button name="steamerDummy"></button>
+		</div>
+
+		<div id="Boats" class="tab">
+			<button name="KEELBOAT"></button>
+			<button name="CANOE"></button>
+			<button name="CANOETREETRUNK"></button>
+			<button name="PIROGUE"></button>
+			<button name="RCBOAT"></button>
+			<button name="rowboat"></button>
+			<button name="ROWBOATSWAMP"></button>
+			<button name="SKIFF"></button>
+			<button name="SHIP_GUAMA02"></button>
+			<button name="SHIP_NBDGUAMA"></button>
+			<button name="horseBoat"></button>
+			<button name="SMUGGLER02"></button>
+			<button name="turbineboat"></button>
+			<button name="PIROGUE2"></button>
+			<button name="ROWBOATSWAMP02"></button>
+			<button name="boatSteam02x"></button>
+			<button name="ship_nbdGuama2"></button>
+			<button name="TugBoat2"></button>
+		</div>
+
+		<div id="Weapons" class="tab">
+			<button name="BREACH_CANNON"></button>
+			<button name="GATLING_GUN"></button>
+			<button name="GATLINGMAXIM02"></button>
+			<button name="hotchkiss_cannon"></button>
+		</div>
+
+		<div id="Other" class="tab">
+			<button name="HOTAIRBALLOON01"></button>
+			<button name="supplywagon2"></button>
+			<button name="logwagon2"></button>
+			<button name="mineCart01x"></button>
+		</div>
+
+		<div id="Search" class="tab">
+			<div id="SearchBarBar">
+				<input type="text" id="SearchBar" placeholder="🔍 Search...">
+			</div>
+			<div id="SearchBarSpace"></div>
+			<button name="CART01" class="searchable"></button>
+			<button name="CART02" class="searchable"></button>
+			<button name="CART03" class="searchable"></button>
+			<button name="CART04" class="searchable"></button>
+			<button name="CART05" class="searchable"></button>
+			<button name="CART06" class="searchable"></button>
+			<button name="CART07" class="searchable"></button>
+			<button name="CART08" class="searchable"></button>
+			<button name="ARMYSUPPLYWAGON" class="searchable"></button>
+			<button name="BUGGY01" class="searchable"></button>
+			<button name="BUGGY02" class="searchable"></button>
+			<button name="BUGGY03" class="searchable"></button>
+			<button name="CHUCKWAGON000X" class="searchable"></button>
+			<button name="CHUCKWAGON002X" class="searchable"></button>
+			<button name="COACH2" class="searchable"></button>
+			<button name="COACH3" class="searchable"></button>
+			<button name="COACH4" class="searchable"></button>
+			<button name="COACH5" class="searchable"></button>
+			<button name="COACH6" class="searchable"></button>
+			<button name="coal_wagon" class="searchable"></button>
+			<button name="OILWAGON01X" class="searchable"></button>
+			<button name="POLICEWAGON01X" class="searchable"></button>
+			<button name="WAGON02X" class="searchable"></button>
+			<button name="WAGON04X" class="searchable"></button>
+			<button name="LOGWAGON" class="searchable"></button>
+			<button name="WAGON03X" class="searchable"></button>
+			<button name="WAGON05X" class="searchable"></button>
+			<button name="WAGON06X" class="searchable"></button>
+			<button name="WAGONPRISON01X" class="searchable"></button>
+			<button name="STAGECOACH001X" class="searchable"></button>
+			<button name="STAGECOACH002X" class="searchable"></button>
+			<button name="STAGECOACH003X" class="searchable"></button>
+			<button name="STAGECOACH004X" class="searchable"></button>
+			<button name="STAGECOACH005X" class="searchable"></button>
+			<button name="STAGECOACH006X" class="searchable"></button>
+			<button name="UTILLIWAG" class="searchable"></button>
+			<button name="GATCHUCK" class="searchable"></button>
+			<button name="GATCHUCK_2" class="searchable"></button>
+			<button name="wagonCircus01x" class="searchable"></button>
+			<button name="wagonDairy01x" class="searchable"></button>
+			<button name="wagonWork01x" class="searchable"></button>
+			<button name="wagonTraveller01x" class="searchable"></button>
+			<button name="supplywagon" class="searchable"></button>
+			<button name="CABOOSE01X" class="searchable"></button>
+			<button name="northpassenger01x" class="searchable"></button>
+			<button name="NORTHSTEAMER01X" class="searchable"></button>
+			<button name="HANDCART" class="searchable"></button>
+			<button name="KEELBOAT" class="searchable"></button>
+			<button name="CANOE" class="searchable"></button>
+			<button name="CANOETREETRUNK" class="searchable"></button>
+			<button name="PIROGUE" class="searchable"></button>
+			<button name="RCBOAT" class="searchable"></button>
+			<button name="rowboat" class="searchable"></button>
+			<button name="ROWBOATSWAMP" class="searchable"></button>
+			<button name="SKIFF" class="searchable"></button>
+			<button name="SHIP_GUAMA02" class="searchable"></button>
+			<button name="SHIP_NBDGUAMA" class="searchable"></button>
+			<button name="horseBoat" class="searchable"></button>
+			<button name="BREACH_CANNON" class="searchable"></button>
+			<button name="GATLING_GUN" class="searchable"></button>
+			<button name="GATLINGMAXIM02" class="searchable"></button>
+			<button name="SMUGGLER02" class="searchable"></button>
+			<button name="turbineboat" class="searchable"></button>
+			<button name="HOTAIRBALLOON01" class="searchable"></button>
+			<button name="hotchkiss_cannon" class="searchable"></button>
+			<button name="wagonCircus02x" class="searchable"></button>
+			<button name="wagonDoc01x" class="searchable"></button>
+			<button name="PIROGUE2" class="searchable"></button>
+			<button name="PRIVATECOALCAR01X" class="searchable"></button>
+			<button name="PRIVATESTEAMER01X" class="searchable"></button>
+			<button name="PRIVATEDINING01X" class="searchable"></button>
+			<button name="ROWBOATSWAMP02" class="searchable"></button>
+			<button name="midlandboxcar05x" class="searchable"></button>
+			<button name="coach3_cutscene" class="searchable"></button>
+			<button name="privateflatcar01x" class="searchable"></button>
+			<button name="privateboxcar04x" class="searchable"></button>
+			<button name="privatebaggage01X" class="searchable"></button>
+			<button name="privatepassenger01x" class="searchable"></button>
+			<button name="trolley01x" class="searchable"></button>
+			<button name="northflatcar01x" class="searchable"></button>
+			<button name="supplywagon2" class="searchable"></button>
+			<button name="northcoalcar01x" class="searchable"></button>
+			<button name="northpassenger03x" class="searchable"></button>
+			<button name="privateboxcar02x" class="searchable"></button>
+			<button name="armoredcar03x" class="searchable"></button>
+			<button name="privateopensleeper01x" class="searchable"></button>
+			<button name="privateopensleeper02x" class="searchable"></button>
+			<button name="WINTERSTEAMER" class="searchable"></button>
+			<button name="wintercoalcar" class="searchable"></button>
+			<button name="privateboxcar01x" class="searchable"></button>
+			<button name="privateobservationcar" class="searchable"></button>
+			<button name="privatearmoured" class="searchable"></button>
+			<button name="armoredCar01x" class="searchable"></button>
+			<button name="steamerDummy" class="searchable"></button>
+			<button name="boatSteam02x" class="searchable"></button>
+			<button name="midlandrefrigeratorCar" class="searchable"></button>
+			<button name="coalHopper01x" class="searchable"></button>
+			<button name="privateRooms01x" class="searchable"></button>
+			<button name="GhostTrainSteamer" class="searchable"></button>
+			<button name="GhostTrainCoalCar" class="searchable"></button>
+			<button name="GhostTrainPassenger" class="searchable"></button>
+			<button name="GhostTrainCaboose" class="searchable"></button>
+			<button name="ship_nbdGuama2" class="searchable"></button>
+			<button name="TugBoat2" class="searchable"></button>
+			<button name="logwagon2" class="searchable"></button>
+			<button name="mineCart01x" class="searchable"></button>
+			<button name="oilWagon02x" class="searchable"></button>
+			<button name="policeWagongatling01x" class="searchable"></button>
+		</div>
+	</div>
+</body>
+</html>
