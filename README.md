@@ -6,7 +6,7 @@ Vehicle Spawning Script for RedM, the Red Dead Redemption 2 Multiplayer Mod, fro
 :---:|:---:
 <a href="https://www.rcpisawesome.co.uk/dev/RedMRCPVehicles/1.png" target="_blank"><img alt="RedMRCPVehicles" src="https://www.rcpisawesome.co.uk/dev/RedMRCPVehicles/1.png"></a>|<a href="https://www.rcpisawesome.co.uk/dev/RedMRCPVehicles/2.png" target="_blank"><img alt="RedMRCPVehicles" src="https://www.rcpisawesome.co.uk/dev/RedMRCPVehicles/2.png"></a>
 # Video:
-[![Video](https://img.youtube.com/vi//maxresdefault.jpg)](https://www.youtube.com/watch?v=)
+[![Video](https://img.youtube.com/vi/cZKZPdHFtBk/maxresdefault.jpg)](https://www.youtube.com/watch?v=cZKZPdHFtBk)
 # Patreon:
 [![patreon](https://c5.patreon.com/external/favicon/favicon.ico)](https://www.patreon.com/RCPisAwesome)     For early access to scripts and videos and other rewards, support me on Patreon page!
 # Features:
