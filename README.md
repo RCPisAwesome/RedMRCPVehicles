@@ -8,7 +8,7 @@ Vehicle Spawning Script for RedM, the Red Dead Redemption 2 Multiplayer Mod, fro
 # Video:
 [![Video](https://img.youtube.com/vi/cZKZPdHFtBk/maxresdefault.jpg)](https://www.youtube.com/watch?v=cZKZPdHFtBk)
 # Patreon:
-[![patreon](https://c5.patreon.com/external/favicon/favicon.ico)](https://www.patreon.com/RCPisAwesome)     For early access to scripts and videos and other rewards, support me on Patreon page!
+[![patreon](https://c5.patreon.com/external/favicon/favicon.ico)](https://www.patreon.com/RCPisAwesome)     For early access to scripts and videos and other rewards, support me on my Patreon page!
 # Features:
 - Do /rcpvehicles in the RedM chat to open the menu
 - Click the X or press Escape to close
