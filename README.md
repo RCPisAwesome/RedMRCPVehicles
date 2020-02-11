@@ -14,6 +14,8 @@ Vehicle Spawning Script for RedM, the Red Dead Redemption 2 Multiplayer Mod, fro
 - Click the X or press Escape to close
 - Toggling the Blue Switch in the top right changes whether only 1 button gets highlighted when clicked or any of them
 - Clicking the menu title resets the buttons back to their red colour
+- The buttons and selectors at the top allow you to customise the vehicle before spawning it
+- Clicking a button in the menu selects the vehicle then pressing "Use CreateVehicle" or "Use CreateVehicle_2" will spawn it
 # Installation:
 1. Make a folder called RCPVehicles in your resources folder of your server
 2. Clone or download the files to that folder
