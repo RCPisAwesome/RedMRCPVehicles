@@ -23,6 +23,6 @@ Vehicle Spawning Script for RedM, the Red Dead Redemption 2 Multiplayer Mod, fro
 # Issues/Bugs &amp; New Features:
 If you find a bug, issue or error or if you want to request a new feature, [create an issue](https://github.com/RCPisAwesome/RedMRCPVehicles/issues) with as much information as you can provide
 
-If you ever get stuck in the menu from an issue you can do rcpuifix in the F8 console to close it
+If you ever get stuck in the menu from an issue you can do rcpuifix in the F8 console to close it if you have my Settings Menu installed
 
 Trains do not work as actual trains it just spawns the model. There will be an update when trains have been worked out.
