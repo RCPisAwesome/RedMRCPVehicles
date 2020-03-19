@@ -34,7 +34,11 @@
 				}));
 			});
 			$("button").click(function(){
-				$("#vehicleselected").html($(this).attr('name'));
+				if (this.id == "createvehicle"){
+				}else if (this.id == "createvehicle2"){
+				}else{
+					$("#vehicleselected").html($(this).attr('name'));
+				}
 			});
 			var button = document.querySelectorAll('button')
 			for (i = 0; i < button.length; i++) {
